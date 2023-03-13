@@ -5,6 +5,7 @@ const router = Router();
 
 router.all("/", (req, res) => {
   const titulo = "mi pagina";
+
   res.render("index", { titulo });
 });
 
