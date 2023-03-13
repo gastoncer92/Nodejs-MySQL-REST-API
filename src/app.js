@@ -1,4 +1,5 @@
 import express from "express";
+// hola mundo
 // import { pool } from "./db.js";
 import inventarioRoute from "./routes/inventario.routes.js";
 import indexRoute from "./routes/index.routes.js";
