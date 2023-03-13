@@ -1,7 +1,27 @@
-<%- include('partials/header'); %>
+<!DOCTYPE html>
+<html lang="en">
 
-    <h1>pagiddna index.ejs</h1>
+<head>
+    <%- include('../partials/head'); %>
+</head>
 
-    <h2>HOLA MUNDO!</h2>
+<body class="container">
 
-    <%- include('partials/footer'); %>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>This is great</h1>
+            <p>Welcome to templating using EJS</p>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>
