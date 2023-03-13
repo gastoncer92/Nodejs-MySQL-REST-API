@@ -37,6 +37,7 @@ app.set("views", path.join(__dirname, "views"));
 // Middlewares
 app.use(morgan("dev"));
 app.use(express.json()); //para poder pasar json
+app.use(express.urlencoded({ extended: false })); // nuevo video
 
 app.use(indexRoute);
 app.use("/api", inventarioRoute);
