@@ -4,7 +4,7 @@ import express from "express";
 import inventarioRoute from "./routes/inventario.routes.js";
 import indexRoute from "./routes/index.routes.js";
 import fileDirName from "./file-dir-name.js";
-import path from "path";
+//import path from "path";
 // import ExpressHandlebars from "express-handlebars/dist/express-handlebars.js" as exphbs; // edit
 
 //import exphbs = require('express-handlebars');
