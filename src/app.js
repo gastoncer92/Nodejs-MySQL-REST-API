@@ -15,7 +15,7 @@ console.log(__dirname);
 // C:\cb\cb-js\index.js
 console.log(__filename);
 
-import path from "path";
+import path, { join } from "path";
 
 import morgan from "morgan";
 
@@ -37,12 +37,22 @@ app.set("views", path.join(__dirname, "views"));
 // Middlewares
 app.use(morgan("dev"));
 app.use(express.json()); //para poder pasar json
-app.use(express.urlencoded({ extended: false })); // nuevo video
+app.use(express.urlencoded()); // nuevo video, para aceptar desde formulario los datos que mandan los usuarios
+
+// Global variables
+app.use((req, res, next) => {
+  next();
+});
 
 // Routes
 app.use(indexRoute);
-app.use("/api", inventarioRoute);
+app.use("/api", inventarioRoute); // los app.use necesitan un objeto de enrutador
 app.use(require("./routes/authentication.routes"));
+// Para que todas las rutas creadas les preceda '/cajas' se agrega como esta a contunuacion, para todo pedido debera ser realizado de la siguient manera '/cajas/', para que preceda
+app.use("/cajas", require("./routes/cajas.routes"));
+
+// public
+app.use(express.static(path, join(__dirname, "public"))); // aca estan los archivos del cliente, el html, css, js
 
 app.use((req, res, next) => {
   res.status(404).json({
