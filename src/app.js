@@ -39,8 +39,10 @@ app.use(morgan("dev"));
 app.use(express.json()); //para poder pasar json
 app.use(express.urlencoded({ extended: false })); // nuevo video
 
+// Routes
 app.use(indexRoute);
 app.use("/api", inventarioRoute);
+app.use(require("./routes/authentication.routes"));
 
 app.use((req, res, next) => {
   res.status(404).json({
