@@ -14,15 +14,18 @@ console.log(__filename);
 
 import path from "path";
 import morgan from "morgan";
-const app = express();
 
-// Middlewares
-app.use(morgan("dev"));
-app.use(express.json()); //para poder pasar json
+// Inicializacion
+const app = express();
 
 // Settings
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
+// Middleware
+app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json()); //para poder pasar json
 
 app.use(indexRoute);
 app.use("/api", inventarioRoute);
